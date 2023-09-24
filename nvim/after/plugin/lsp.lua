@@ -7,7 +7,10 @@ lsp.ensure_installed({
   'eslint',
   'lua_ls',
   'rust_analyzer',
+  'pyright',
 })
+
+
 
 -- Fix Undefined global 'vim'
 lsp.nvim_workspace()
@@ -53,6 +56,9 @@ lsp.on_attach(function(client, bufnr)
   vim.keymap.set("n", "<leader>vrn", function() vim.lsp.buf.rename() end, opts)
   vim.keymap.set("i", "<C-h>", function() vim.lsp.buf.signature_help() end, opts)
 end)
+
+require("lspconfig").eslint.setup({})
+require("lspconfig").tsserver.setup({})
 
 lsp.setup()
 

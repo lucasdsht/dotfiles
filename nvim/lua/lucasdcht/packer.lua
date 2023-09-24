@@ -56,4 +56,14 @@ return require('packer').startup(function(use)
 			{'L3MON4D3/LuaSnip'},     -- Required
 		}
 	}
+
+  -- discord rich presence
+  use 'andweeb/presence.nvim'
+
+  -- formatter
+  use {"stevearc/conform.nvim",}
+
+  -- linter
+  use 'mfussenegger/nvim-lint'
+
 end)
