@@ -4,66 +4,68 @@
 vim.cmd [[packadd packer.nvim]]
 
 return require('packer').startup(function(use)
-	-- Packer can manage itself
-	use 'wbthomason/packer.nvim'
+  -- Packer can manage itself
+  use 'wbthomason/packer.nvim'
 
 
-	-- Telescope (fuzy finder)
+  -- Telescope (fuzy finder)
 
-	use {
-		'nvim-telescope/telescope.nvim', tag = '0.1.3',
-		requires = { {'nvim-lua/plenary.nvim'} }
-	}
+  use {
+    'nvim-telescope/telescope.nvim', tag = '0.1.3',
+    requires = { { 'nvim-lua/plenary.nvim' } }
+  }
 
-	-- Colorscheme
-	use ({
-		"ellisonleao/gruvbox.nvim",
-		as = "gruvbox",
-		config = function()
-			vim.cmd("colorscheme gruvbox")
-		end
-	})
+  -- Colorscheme
+  use({
+    "ellisonleao/gruvbox.nvim",
+    as = "gruvbox",
+    config = function()
+      vim.cmd("colorscheme gruvbox")
+    end
+  })
 
-	-- Syntax hightlighting
-	use( "nvim-treesitter/nvim-treesitter", {run = ":TSUpdate"} )
-
-
-	-- harpoon <3
-	use("theprimeagen/harpoon")
+  -- Syntax hightlighting
+  use("nvim-treesitter/nvim-treesitter", { run = ":TSUpdate" })
 
 
-	-- undotree
-	use("mbbill/undotree")
+  -- harpoon <3
+  use("theprimeagen/harpoon")
 
 
-	-- fugitive 
-	use("tpope/vim-fugitive")
+  -- undotree
+  use("mbbill/undotree")
 
 
-	-- lspconfig
-	use {
-		'VonHeikemen/lsp-zero.nvim',
-		branch = 'v2.x',
-		requires = {
-			-- LSP Support
-			{'neovim/nvim-lspconfig'},             -- Required
-			{'williamboman/mason.nvim'},           -- Optional
-			{'williamboman/mason-lspconfig.nvim'}, -- Optional
+  -- fugitive
+  use("tpope/vim-fugitive")
 
-			-- Autocompletion
-			{'hrsh7th/nvim-cmp'},     -- Required
-			{'hrsh7th/cmp-nvim-lsp'}, -- Required
-			{'L3MON4D3/LuaSnip'},     -- Required
-		}
-	}
+
+  -- lspconfig
+  use {
+    'VonHeikemen/lsp-zero.nvim',
+    branch = 'v2.x',
+    requires = {
+      -- LSP Support
+      { 'neovim/nvim-lspconfig' },        -- Required
+      { 'williamboman/mason.nvim' },      -- Optional
+      { 'williamboman/mason-lspconfig.nvim' }, -- Optional
+
+      -- Autocompletion
+      { 'hrsh7th/nvim-cmp' }, -- Required
+      { 'hrsh7th/cmp-nvim-lsp' }, -- Required
+      { 'L3MON4D3/LuaSnip' }, -- Required
+    }
+  }
 
   -- discord rich presence
   use 'andweeb/presence.nvim'
 
   -- formatter
-  use {"stevearc/conform.nvim",}
+  use { "stevearc/conform.nvim", }
 
   -- linter
   use 'mfussenegger/nvim-lint'
 
+  -- zenmode
+  use "folke/zen-mode.nvim"
 end)
