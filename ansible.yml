@@ -1,0 +1,31 @@
+- hosts: localhost
+  become: true
+  tasks:
+  - name: install packages
+    pacman:
+      name:
+        - git
+        - neovim
+        - tmux
+        - fzf
+        - fish
+        - man
+        - qtile
+        - lightdm-gtk-greeter
+  - name: change default shell
+    shell: chsh -s `which fish`
+  - name: enter fish shell
+    shell: fish
+  - name: install fisher
+    shell: curl -sL https://raw.githubusercontent.com/jorgebucaran/fisher/main/functions/fisher.fish | source && fisher install jorgebucaran/fisher
+  - name: install Oh-My-Fish
+    shell: curl https://raw.githubusercontent.com/oh-my-fish/oh-my-fish/master/bin/install | fish
+  - name: setup omf theme
+    shell: omf install bobthefish
+  - name: setup fisher plugins
+    shell: |
+        fisher install jorgebucaran/fisher &&
+        fisher install jorgebucaran/nvm.fish &&
+        fisher install jhillyerd/plugin-git &&
+        fisher install jethrokuan/fzf &&
+        fisher install jethrokuan/z
