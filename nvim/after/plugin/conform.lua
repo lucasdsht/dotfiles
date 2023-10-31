@@ -2,8 +2,7 @@ local conform = require("conform")
 
 conform.setup({
   formatters_by_ft = {
-    javascript = { { "prettierd", "prettier" } },
-    javascriptreact = { { "prettierd", "prettier" } },
+    javascript = {{"prettierd", "prettier"}},
     ["*"] = { "codespell" },
     ["_"] = { "trim_whitespace" },
   },

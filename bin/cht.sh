@@ -1,6 +1,6 @@
 #!/bin/bash
 
-languages=$(echo "c nodejs nodeenv nodemon nvm python javascript typescript bash rust css" | tr " " "\n" )
+languages=$(echo "c csharp nodejs nodeenv nodemon nvm python javascript typescript bash rust css kotlin" | tr " " "\n" )
 core_utils=$(echo "find xargs sed awk" | tr " " "\n" )
 selected=$(echo -e "$languages\n$core_utils" | fzf)
 

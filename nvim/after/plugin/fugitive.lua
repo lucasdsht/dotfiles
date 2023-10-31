@@ -11,3 +11,4 @@ vim.keymap.set("n", "<leader>gco", ":Git checkout")
 
 vim.keymap.set("n", "<leader>gj", "<cmd>diffget //2<CR>")
 vim.keymap.set("n", "<leader>gk", "<cmd>diffget //3<CR>")
+

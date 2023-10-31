@@ -23,7 +23,6 @@ return require('packer').startup(function(use)
       vim.cmd("colorscheme gruvbox")
     end
   })
-
   -- Syntax hightlighting
   use("nvim-treesitter/nvim-treesitter", { run = ":TSUpdate" })
 
@@ -68,9 +67,4 @@ return require('packer').startup(function(use)
 
   -- zenmode
   use "folke/zen-mode.nvim"
-
-  -- status line
-  use {
-    'nvim-lualine/lualine.nvim', requires = { 'nvim-tree/nvim-web-devicons', opt = true }
-  }
 end)

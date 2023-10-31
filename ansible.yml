@@ -12,5 +12,11 @@
         - man
         - qtile
         - lightdm-gtk-greeter
+        - stow
+        - pavucontrol
+        - bluez
+        - bluez-utils
+
   - name: change default shell
     shell: chsh -s `which fish`
+  - name:
