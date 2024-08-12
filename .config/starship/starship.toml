@@ -1,0 +1,8 @@
+# Single line prompt
+[line_break]
+disabled = true
+
+[localip]
+ssh_only = false
+format = '@[$localipv4](bold red) '
+disabled = false
