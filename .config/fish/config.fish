@@ -9,6 +9,7 @@ alias cat "bat"
 alias rm 'rm -i'
 alias cp 'cp -i'
 alias mv 'mv -i'
+alias nf 'neofetch'
 
 # path variables
 set -x PATH $PATH /home/lucasdcht/.local/bin
