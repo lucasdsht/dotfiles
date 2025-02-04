@@ -1,5 +1,5 @@
 vim.g.mapleader = " "
-vim.keymap.set("n", "<leader>ff", vim.cmd.Ex)
+vim.keymap.set("n", "<leader>ff", ':Neotree toggle<CR>')
 vim.keymap.set('n', '<C-s>', ":!tmux neww tmux-sessionizer<CR>")
 
 vim.keymap.set("n", "<leader>y", "\"*yy")

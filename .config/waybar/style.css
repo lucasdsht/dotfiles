@@ -1,116 +1,169 @@
-@import '../../.cache/wal/colors-waybar.css';
-
 * {
-  font-family: "JetBrainsMono Nerd Font", Roboto, Helvetica, Arial, sans-serif;
-  font-size: 18px;
-  color: @foreground;
+  border: none;
+  border-radius: 0;
+  font-family: "JetBrainsMono Nerd Font";
+  font-weight: bold;
+  font-size: 16px;
+  min-height: 0;
 }
 
 window#waybar {
-  background-color: transparent;
-  border-radius: 13px;
-  transition-property: background-color;
-  transition-duration: 0.5s;
+  background: rgba(21, 18, 27, 0);
+  background: #1e1e2e;
+  color: #cdd6f4;
 }
 
-button {
-  /* Use box-shadow instead of border so the text isn't offset */
-  box-shadow: inset 0 -3px transparent;
-  /* Avoid rounded borders under each button name */
-  border: none;
-  border-radius: 0;
-}
-
-/* https://github.com/Alexays/Waybar/wiki/FAQ#the-workspace-buttons-have-a-strange-hover-effect */
-button:hover {
-  background: inherit;
-  box-shadow: inset 0 -3px #ffffff;
-}
-
-/* you can set a style on hover for any module like this */
-#pulseaudio:hover {
-  background-color: @color1;
+tooltip {
+  background: #1e1e2e;
+  border-radius: 10px;
+  border-width: 2px;
+  border-style: solid;
+  border-color: #11111b;
 }
 
 #workspaces button {
-  padding: 0 5px;
-  background-color: transparent;
+  padding: 5px;
+  color: #b4befe;
+  margin-right: 5px;
+}
+
+#workspaces button.active {
+  color: #a6adc8;
+  color: #94e2d5;
 }
 
 #workspaces button.focused {
-  background-color: @color1;
-  box-shadow: inset 0 -3px #ffffff;
+  color: #a6adc8;
+  background: #eba0ac;
+  border-radius: 10px;
 }
 
 #workspaces button.urgent {
-  background-color: #eb4d4b;
+  color: #11111b;
+  background: #a6e3a1;
+  border-radius: 10px;
 }
 
-.modules-center {
-  background-color: @background;
+#workspaces button:hover {
+  background: #313244;
+  color: #cdd6f4;
+  border-radius: 20px;
 }
 
-#window {
-  padding: 0 10px;
-}
-
-#mode {
-  background-color: #64727d;
-  box-shadow: inset 0 -3px #ffffff;
-}
-
+#custom-power_profile,
+#window,
 #clock,
 #battery,
-#cpu,
-#memory,
-#temperature,
+#pulseaudio,
 #network,
-#pulseaudio {
-  padding: 0 10px;
+#bluetooth,
+#temperature,
+#workspaces,
+#tray,
+#backlight,
+#custom-launch_wofi {
+  background: #1e1e2e;
+  background: #313244;
+  opacity: 0.8;
+  padding: 0px 10px;
+  margin: 3px 0px;
+  margin-top: 5px;
+  margin-bottom: 5px;
+  border: 1px solid #181825;
+}
+
+#temperature {
+  border-radius: 10px 0px 0px 10px;
+}
+
+#temperature.critical {
+  color: #eba0ac;
+}
+
+#backlight {
+  border-radius: 0px;
+  border-left: none;
+  border-right: none;
 }
 
 #tray {
-  padding: 10px;
-  border: 3px solid @color2;
-  border-radius: 15px;
+  border-radius: 10px;
+  margin-right: 15px;
 }
 
-.modules-right {
-  margin-top: 5px;
-}
-
-#hardware {
-  border: 3px solid @color2;
+#workspaces {
+  background: #1e1e2e;
+  background: #313244;
   border-radius: 15px;
   margin-left: 10px;
+  padding-right: 0px;
+  padding-left: 5px;
 }
 
-.modules-left,
-.modules-center {
-  margin-top: 5px;
-  /* background-color: @background; */
-  border: 3px solid @color2;
+#custom-power_profile {
+  color: #a6e3a1;
+  border-left: 0px;
+  border-right: 0px;
+}
+
+#window {
   border-radius: 15px;
-}
-.modules-right {
-  padding: 0 10px;
-}
-
-.modules-left {
-  padding: 0 20px;
+  margin-left: 40px;
+  margin-right: 40px;
 }
 
-.modules-center {
-  padding: 0 10px;
+#clock {
+  color: #fab387;
+  border-radius: 15px;
+  margin-right: 10px;
+  padding: 0 15px;
+  border-right: 0px;
 }
 
-
-/* Using steps() instead of linear as a timing function to limit cpu usage */
-#battery.critical:not(.charging) {
-  background-color: #f53c3c;
+#network {
+  color: #f9e2af;
+  border-radius: 0px 15px 15px 0px;
+  border-left: 0px;
+  border-right: 0px;
+  padding-right: 17px;
+  margin-right: 10px;
 }
 
-label:focus {
-  background-color: #000000;
+#bluetooth {
+  color: #89b4fa;
+  border-radius: 15px;
+  margin-right: 10px;
 }
 
+#pulseaudio {
+  color: #89b4fa;
+  border-left: 0px;
+  border-right: 0px;
+  padding-left: 17px;
+  border-radius: 15px 0px 0px 15px;
+}
+
+#pulseaudio.microphone {
+  color: #cba6f7;
+  border-left: 0px;
+  border-right: 0px;
+  border-radius: 0px 15px 15px 0px;
+  margin-right: 10px;
+}
+
+#battery {
+  color: #a6e3a1;
+  border-radius: 15px;
+  margin-right: 10px;
+  padding: 0 15px;
+  border-left: 0px;
+}
+
+#custom-launch_wofi {
+  border-radius: 15px;
+  color: #89b4fa;
+  margin-left: 10px;
+  padding-right: 10px;
+  padding-left: 15px;
+  border-right: 0px;
+}

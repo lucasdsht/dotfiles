@@ -1,1 +1,3 @@
-require("lucasdcht")
+require("config.lazy")
+require("base")
+require("remap")

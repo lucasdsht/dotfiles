@@ -10,9 +10,6 @@ alias rm 'rm -i'
 alias cp 'cp -i'
 alias mv 'mv -i'
 alias nf 'neofetch'
-alias lg 'lazygit'
-alias v 'nvim'
-alias t 'tmux'
 
 # path variables
 set -x PATH $PATH /home/lucasdcht/.local/bin
@@ -46,7 +43,3 @@ set -x STARSHIP_CONFIG ~/.config/starship/starship.toml
 
 # Initialize Starship prompt
 starship init fish | source
-
-# The next line updates PATH for the Google Cloud SDK.
-if [ -f '/home/lucasdcht/google-cloud-sdk/path.fish.inc' ]; . '/home/lucasdcht/google-cloud-sdk/path.fish.inc'; end
-set -Ux USE_GKE_GCLOUD_AUTH_PLUGIN True
