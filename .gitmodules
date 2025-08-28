@@ -1,3 +1,0 @@
-[submodule ".config/quickshell"]
-	path = .config/quickshell
-	url = git@github.com:lucasdsht/shell.git
