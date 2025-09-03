@@ -5,11 +5,9 @@ import qs.utils
 
 PanelWindow {
   id: dashboard
-  
   property bool open: false
 
-
-  width: 300 
+  width: 350
   height: 800
   color: "transparent"
   visible: dashboard.open
@@ -24,8 +22,9 @@ PanelWindow {
 
   Rectangle {
     anchors.fill: parent
-    color: Theme.surface1
-    radius: Theme.roundedMd
+    anchors.rightMargin: 20
+    color: Theme.base
+    radius: Theme.roundedLg
     border {
       width: Theme.borderMd
       color: Theme.accent
