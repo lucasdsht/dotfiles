@@ -1,6 +1,7 @@
 import QtQuick
 import QtQuick.Controls
 import Quickshell.Io
+import qs.utils
 
 Control {
   id: root
@@ -14,7 +15,7 @@ Control {
     spacing: 6
     Label {
       text: connType === "ethernet" ? "󰈀" : ""   // ethernet/wifi Nerd Font
-      color: "white"
+      color: Theme.text
       font.pixelSize: 14
     }
   }

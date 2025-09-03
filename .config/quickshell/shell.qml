@@ -1,14 +1,14 @@
 import Quickshell
-import QtQuick
 import Quickshell.Hyprland as H
+import QtQuick
 import "modules/bar"
 import "modules/background"
 import "modules/powermenu"
-// import "modules/lockscreen"
+import "modules/Dashboard"
 
 ShellRoot {
   Background {}
   Bar {}
-  // Lockscreen{id: lock}
+  Dashboard {}
 }
 

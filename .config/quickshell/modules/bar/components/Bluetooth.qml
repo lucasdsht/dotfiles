@@ -1,8 +1,11 @@
 import QtQuick
+import qs.utils
 
 
 Text{
-  text: "bluetooth"
+  text: "󰂯"
+  font.pixelSize: 20
+  color: Theme.text
 }
 
 

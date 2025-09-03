@@ -24,8 +24,6 @@ ColumnLayout {
       radius: 8
       color: (ws && H.Hyprland.focusedWorkspace && ws.id === H.Hyprland.focusedWorkspace.id)
              ? Theme.surface1 : "transparent"
-      border.width: 1
-      border.color: color
 
       MouseArea {
         anchors.fill: parent

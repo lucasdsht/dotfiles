@@ -48,7 +48,8 @@ PanelWindow {
 
       C.Battery    { Layout.fillWidth: true }
       C.Network    { Layout.fillWidth: true; Layout.alignment: Qt.AlignHCenter; drawer: netDrawer }
-      C.Bluetooth  { Layout.fillWidth: true }
+      C.Bluetooth  { Layout.fillWidth: true; Layout.alignment: Qt.AlignHCenter;}
+      C.ThemeToggle      { Layout.fillWidth: true; Layout.alignment: Qt.AlignHCenter; }
       C.Clock      { Layout.fillWidth: true; Layout.alignment: Qt.AlignHCenter; }
       C.PowerMenu  { Layout.preferredHeight: 40; Layout.preferredWidth: 40;}
     }
