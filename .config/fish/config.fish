@@ -33,10 +33,11 @@ end
 # pnpm end
 
 
+set fish_greeting
 
 # neofetch at startup
 if not set -q TMUX
-    neofetch
+    fastfetch
 end
 
 # starship stuff
@@ -47,6 +48,5 @@ set -x STARSHIP_CONFIG ~/.config/starship/starship.toml
 # Initialize Starship prompt
 starship init fish | source
 
-# The next line updates PATH for the Google Cloud SDK.
-if [ -f '/home/lucasdcht/google-cloud-sdk/path.fish.inc' ]; . '/home/lucasdcht/google-cloud-sdk/path.fish.inc'; end
-set -Ux USE_GKE_GCLOUD_AUTH_PLUGIN True
+
+fish_add_path /home/lucasdcht/.spicetify

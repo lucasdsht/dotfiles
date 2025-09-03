@@ -1,75 +1,64 @@
 import QtQuick
 import Quickshell
-import Quickshell.Wayland 
-import QtQuick.Shapes 
-import Qt5Compat.GraphicalEffects 
+import Quickshell.Wayland
+import Qt5Compat.GraphicalEffects
+import qs.utils
 
 PanelWindow {
   id: win
-  // === customize these ===
-  property url wallpaperSource: ""
-  property bool useExternalWallpaper: false
-  property real cornerRadius: 0
-  property real borderWidth: 10
-  property color borderColor: "#1e1e2e"
-  //property color borderColor: "red"
-  readonly property real inset: borderWidth / 2
 
-  visible: !useExternalWallpaper && wallpaperSource !== ""
+  // === customization ===
+  property bool useExternalWallpaper: false
+  property real cornerRadius: 20
+  property real borderWidth: Theme.borderXxl
+  property color borderColor: Theme.base
+
+  visible: !useExternalWallpaper && Theme.wallpaper !== ""
   anchors {
     top: true
     bottom: true
     left: true
     right: true
   }
+
   color: "transparent"
 
   WlrLayershell.layer: WlrLayer.Background
   WlrLayershell.exclusionMode: ExclusionMode.Ignore
   WlrLayershell.namespace: "quickshell-wallpaper"
 
-  // base image (hidden, used as source for mask)
-  Image {
-    id: img
-    anchors.fill: parent
-    source: win.wallpaperSource
-    fillMode: Image.PreserveAspectCrop
-    visible: false
-    cache: true
-    smooth: true
-  }
-
-  // mask shape for rounded corners
+  // 1. Background frame
   Rectangle {
-    id: maskRect
     anchors.fill: parent
-    anchors.margins: win.inset
-    //radius: Math.max(0, win.cornerRadius - win.inset)
-    visible: false
+    color: win.borderColor
   }
 
-  // masked wallpaper (applies rounded corners)
-  OpacityMask {
+  // 2. Wallpaper with real rounded clipping
+  Item {
     anchors.fill: parent
-    source: img
-    maskSource: maskRect
-  }
+    anchors.margins: win.borderWidth
 
-  // stroke border around the screen
-  Shape {
-    anchors.fill: parent
-    ShapePath {
-      strokeColor: win.borderColor
-      strokeWidth: win.borderWidth
-      fillColor: "transparent"
+    Image {
+      id: wallpaperImg
+      anchors.fill: parent
+      source: Theme.wallpaper
+      fillMode: Image.PreserveAspectCrop
+      smooth: true
+      cache: true
+      visible: false
+    }
 
-      PathRectangle {
-        x: win.inset
-        y: win.inset
-        width: win.width  - 2 * win.inset
-        height: win.height - 2 * win.inset
-        //radius: Math.max(0, win.cornerRadius - win.inset)
-      }
+    Rectangle {
+      id: mask
+      anchors.fill: parent
+      radius: win.cornerRadius
+      visible: false
+    }
+
+    OpacityMask {
+      anchors.fill: parent
+      source: wallpaperImg
+      maskSource: mask
     }
   }
 }

@@ -3,6 +3,7 @@ import QtQuick.Controls
 import QtQuick.Layouts
 import Quickshell
 import Quickshell.Hyprland as H
+import qs.utils
 
 ColumnLayout {
   id: root
@@ -22,7 +23,7 @@ ColumnLayout {
       Layout.preferredHeight: root.itemHeight
       radius: 8
       color: (ws && H.Hyprland.focusedWorkspace && ws.id === H.Hyprland.focusedWorkspace.id)
-             ? "#45475a" : "transparent"
+             ? Theme.surface1 : "transparent"
       border.width: 1
       border.color: color
 
@@ -38,7 +39,7 @@ ColumnLayout {
       Row {
         anchors.centerIn: parent
         spacing: 6
-        Label { text: ""; color: "#cdd6f4"; font.pixelSize: 13 }
+        Label { text: ""; color: Theme.text; font.pixelSize: 13 }
       }
     }
   }

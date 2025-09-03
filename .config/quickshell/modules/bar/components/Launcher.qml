@@ -2,6 +2,7 @@ import QtQuick
 import QtQuick.Controls
 import Quickshell
 import Quickshell.Io
+import qs.utils
 
 Button {
   id: launcher
@@ -9,18 +10,20 @@ Button {
 
   background: Rectangle {
     radius: 10
-    color: "#f38ba8"
+    color: Theme.red //"#f38ba8"
   }
 
   Process {
     id: wofiTrigger
-    command: ["wofi", "--show", "drun"]
+    command: ["wofi", "--show", "drun"] // launcher WIP
   }
 
   onClicked: wofiTrigger.running = true
   Text {
     anchors.centerIn: parent
-    text: ""
+    font.bold: true
+    font.pixelSize: 24
+    text: ""
   }
 }
 

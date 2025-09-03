@@ -1,7 +1,8 @@
 import Quickshell
 import QtQuick
 import QtQuick.Controls
-import "../../powermenu"
+import "../../popups"
+import qs.utils
 
 Button {
   id: powerButton
@@ -10,10 +11,10 @@ Button {
 
   background: Rectangle {
     radius: 10
-    color: "#a6e3a1"
+    color: Theme.accent
   }
 
-  onClicked: powermenu.visible = !powermenu.visible
+  onClicked: Powermenu.visible = !Powermenu.visible
 
   Text {
     anchors.centerIn: parent
@@ -22,14 +23,4 @@ Button {
     text: "⏻"
   }
 
-  PanelWindow {
-    id: powermenu
-    implicitWidth: 500
-    implicitHeight: 300
-    visible: false
-
-    Text {
-      text: "powermenu"
-    }  
-  }
 }
