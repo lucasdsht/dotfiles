@@ -2,6 +2,7 @@ import QtQuick
 import QtQuick.Controls
 import Quickshell
 import Quickshell.Services.UPower
+import qs.utils
 
 Control {
   id: root
@@ -13,7 +14,7 @@ Control {
 
   contentItem: Label {
     text: root.percent >= 0 ? `${root.percent}%` : "?%"
-    color: "white"
+    color: Theme.text
     font.pixelSize: 13
     horizontalAlignment: Text.AlignHCenter
     verticalAlignment: Text.AlignVCenter

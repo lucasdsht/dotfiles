@@ -1,0 +1,94 @@
+/* Catppuccin Latte Red — userContent.css */
+
+  /* about:* common */
+  @-moz-document url-prefix("about:") {
+    :root {
+      --in-content-page-color: #4c4f69 !important;        /* text */
+      --color-accent-primary: #d20f39 !important;         /* red */
+      --color-accent-primary-hover: #e64553 !important;
+      --color-accent-primary-active:#c0122c !important;
+      background-color: #eff1f5 !important;               /* base */
+      --in-content-page-background: #eff1f5 !important;
+    }
+  }
+
+  /* about:newtab / about:home */
+  @-moz-document url("about:newtab"), url("about:home") {
+    :root {
+      --newtab-background-color: #eff1f5 !important;      /* base */
+      --newtab-background-color-secondary: #ccd0da !important; /* surface0 */
+      --newtab-element-hover-color: #ccd0da !important;
+      --newtab-text-primary-color: #4c4f69 !important;    /* text */
+      --newtab-wordmark-color: #4c4f69 !important;
+      --newtab-primary-action-background: #d20f39 !important; /* red */
+    }
+
+    .icon { color: #d20f39 !important; }
+
+    .search-wrapper .logo-and-wordmark .logo {
+      background: url("zen-logo-latte.svg") no-repeat center !important;
+      display: inline-block !important;
+      height: 82px !important; width: 82px !important; background-size: 82px !important;
+    }
+    @media (max-width: 609px) {
+      .search-wrapper .logo-and-wordmark .logo {
+        background-size: 64px !important; height: 64px !important; width: 64px !important;
+      }
+    }
+
+    .card-outer:is(:hover, :focus, .active):not(.placeholder) .card-title { color: #d20f39 !important; }
+    .top-site-outer .search-topsite { background-color: #1e66f5 !important; } /* blue */
+    .compact-cards .card-outer .card-context .card-context-icon.icon-download { fill: #40a02b !important; } /* green */
+  }
+
+  /* about:preferences */
+  @-moz-document url-prefix("about:preferences") {
+    :root {
+      --zen-colors-tertiary: #e6e9ef !important;          /* mantle */
+      --in-content-text-color: #4c4f69 !important;        /* text */
+      --link-color: #d20f39 !important;                   /* red */
+      --link-color-hover: #e64553 !important;
+      --zen-colors-primary: #ccd0da !important;           /* surface0 */
+      --in-content-box-background: #ccd0da !important;    /* surface0 */
+      --zen-primary-color: #d20f39 !important;            /* red */
+    }
+
+    groupbox, moz-card { background: #eff1f5 !important; }  /* base */
+    button, groupbox menulist { background: #ccd0da !important; color: #4c4f69 !important; } /* surface0/text */
+    .main-content { background-color: #dce0e8 !important; } /* crust */
+
+    .identity-color-blue      { --identity-tab-color:#1e66f5 !important; --identity-icon-color:#1e66f5 !important; }
+    .identity-color-turquoise { --identity-tab-color:#179299 !important; --identity-icon-color:#179299 !important; } /* teal */
+    .identity-color-green     { --identity-tab-color:#40a02b !important; --identity-icon-color:#40a02b !important; }
+    .identity-color-yellow    { --identity-tab-color:#df8e1d !important; --identity-icon-color:#df8e1d !important; }
+    .identity-color-orange    { --identity-tab-color:#fe640b !important; --identity-icon-color:#fe640b !important; }
+    .identity-color-red       { --identity-tab-color:#d20f39 !important; --identity-icon-color:#d20f39 !important; }
+    .identity-color-pink      { --identity-tab-color:#ea76cb !important; --identity-icon-color:#ea76cb !important; }
+    .identity-color-purple    { --identity-tab-color:#8839ef !important; --identity-icon-color:#8839ef !important; }
+  }
+
+  /* about:addons */
+  @-moz-document url-prefix("about:addons") {
+    :root {
+      --zen-dark-color-mix-base: #e6e9ef !important; /* mantle */
+      --background-color-box:    #eff1f5 !important; /* base */
+    }
+  }
+
+  /* about:protections */
+  @-moz-document url-prefix("about:protections") {
+    :root {
+      --zen-primary-color: #e6e9ef !important;  /* mantle */
+      --social-color:       #8839ef !important; /* mauve */
+      --coockie-color:      #04a5e5 !important; /* sky */
+      --fingerprinter-color:#df8e1d !important; /* yellow */
+      --cryptominer-color:  #7287fd !important; /* lavender */
+      --tracker-color:      #40a02b !important; /* green */
+      --in-content-primary-button-background-hover: #b3b8c4 !important; /* surface1-ish */
+      --in-content-primary-button-text-color-hover: #4c4f69 !important;
+      --in-content-primary-button-background: #acb0be !important; /* surface2 */
+      --in-content-primary-button-text-color: #4c4f69 !important;
+    }
+    .card { background-color: #ccd0da !important; } /* surface0 */
+  }
+}

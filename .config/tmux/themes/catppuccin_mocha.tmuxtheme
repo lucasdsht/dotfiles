@@ -1,0 +1,44 @@
+##### Catppuccin Mocha (dark)
+
+# status bar
+set -g status on
+set -g status-position bottom
+set -g status-justify centre
+set -g status-style "fg=#cdd6f4,bg=#181825"
+
+# left/right
+set -g status-left-length 60
+set -g status-right-length 120
+set -g status-left  "#[fg=#1e1e2e,bg=#b4befe,bold] #{session_name} #[fg=#b4befe,bg=#181825]"
+set -g status-right "#[fg=#181825,bg=#585b70]#[fg=#cdd6f4,bg=#585b70] %Y-%m-%d #[fg=#cdd6f4,bg=#585b70]%H:%M #[fg=#585b70,bg=#181825]#[fg=#cdd6f4,bg=#181825] #h "
+
+# windows
+setw -g window-status-format         "#[fg=#a6adc8,bg=#181825]  #I:#W  "
+setw -g window-status-current-format "#[fg=#1e1e2e,bg=#89b4fa,bold]  #I:#W  "
+setw -g window-status-separator ""
+
+# pane borders
+set -g pane-border-style        "fg=#585b70"
+set -g pane-active-border-style "fg=#b4befe"
+
+# pane numbers
+set -g display-panes-active-colour "#b4befe"
+set -g display-panes-colour        "#585b70"
+
+# messages / prompts
+set -g message-style         "fg=#1e1e2e,bg=#b4befe,bold"
+set -g message-command-style "fg=#1e1e2e,bg=#89b4fa,bold"
+
+# copy-mode
+setw -g mode-style "fg=#1e1e2e,bg=#89dceb,bold"
+
+# clock
+setw -g clock-mode-colour "#b4befe"
+setw -g clock-mode-style 24
+
+# final styles to be explicit
+set -g status-left-style  default
+set -g status-right-style default
+setw -g window-status-style          "fg=#a6adc8,bg=#181825"
+setw -g window-status-current-style  "fg=#1e1e2e,bg=#89b4fa,bold"
+
