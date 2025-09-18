@@ -39,7 +39,7 @@ Control {
     }
   }
 
-  Timer { interval: 5000; running: true; repeat: true; onTriggered: pActive.start() }
-  Component.onCompleted: pActive.start()
+  Timer { interval: 5000; running: true; repeat: true; onTriggered: pActive.running = true }
+  Component.onCompleted: pActive.running = true
 }
 

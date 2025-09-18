@@ -4,6 +4,7 @@ import Quickshell
 import Quickshell.Wayland
 import Quickshell.Io
 import Quickshell.Hyprland as H
+import qs.components.misc
 
 PanelWindow {
   id: lockscreen
@@ -109,7 +110,7 @@ PanelWindow {
   Process { id: unlock }
 
   // hotkey from Hyprland
-  H.GlobalShortcut {
+  CustomShortcut {
     name: "lockscreen_toggle"
     description: "Show lockscreen"
     onPressed: lockscreen.visible = true

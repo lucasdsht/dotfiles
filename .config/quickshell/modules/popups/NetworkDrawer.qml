@@ -95,7 +95,7 @@ PanelWindow {
   property bool askPassword: false
 
   function scanWifi() {
-    status.text = "Scanning…"; networks.clear(); pScan.start()
+    status.text = "Scanning…"; networks.clear(); pScan.running = true
   }
 
   function connectToSsid(n) {
@@ -105,7 +105,7 @@ PanelWindow {
       askPassword = false
       status.text = `Connecting to ${pendingSsid}…`
       pConnect.command = ["bash","-lc",`nmcli dev wifi connect "${pendingSsid}"`]
-      pConnect.start()
+      pConnect.running = true
     }
   }
 
@@ -114,7 +114,7 @@ PanelWindow {
     status.text = `Connecting to ${pendingSsid}…`
     pConnect.command = ["bash","-lc",
       `nmcli dev wifi connect "${pendingSsid}" password "${pwdInput.text}"`]
-    pConnect.start()
+    pConnect.running = true
   }
 
   // ---- processes ----

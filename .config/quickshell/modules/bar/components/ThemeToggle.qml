@@ -1,4 +1,5 @@
 import QtQuick
+import Quickshell.Hyprland as H
 import QtQuick.Controls
 import Quickshell
 import Quickshell.Io
@@ -37,5 +38,15 @@ Button {
 
   // Optionnel: synchroniser au démarrage
   Component.onCompleted: applyThemeNow()
+
+
+  H.GlobalShortcut {
+    name: "theme_toggle"
+    description: "swap theme"
+    onPressed: {
+      Theme.toggleTheme()
+      applyThemeNow()
+    }
+  }
 }
 

@@ -1,14 +1,16 @@
 import Quickshell
 import QtQuick
 import Quickshell.Wayland
+import Quickshell.Hyprland as H
 import qs.utils
+import "../Notifications"
 
 PanelWindow {
   id: dashboard
   property bool open: false
 
-  width: 350
-  height: 800
+  implicitWidth: 350
+  implicitHeight: 800
   color: "transparent"
   visible: dashboard.open
 
@@ -18,7 +20,7 @@ PanelWindow {
 
   WlrLayershell.layer: WlrLayer.Overlay
   WlrLayershell.exclusionMode: ExclusionMode.Normal
-  WlrLayershell.namespace: "qs-network-drawer"
+  WlrLayershell.namespace: "qs-dashboard-drawer"
 
   Rectangle {
     anchors.fill: parent
@@ -30,10 +32,16 @@ PanelWindow {
       color: Theme.accent
     }
 
+    Profile {}
+    //Feed { Layout.fillHeight: true; Layout.fillWidth: true }
+  }
 
-    Text {
-      color: Theme.text
-      text: "Dashboard"
+
+  H.GlobalShortcut {
+    name: "dashboard_toggle"
+    description: "visible dashboard"
+    onPressed: {
+      dashboard.open = !dashboard.open
     }
   }
 }

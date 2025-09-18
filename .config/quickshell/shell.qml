@@ -10,5 +10,7 @@ ShellRoot {
   Background {}
   Bar {}
   Dashboard {}
+
+  // _____ Shortcuts  _____
 }
 
