@@ -13,7 +13,6 @@
     ./style.nix
     ./audio.nix
     ./power.nix
-    ./sec.nix
   ];
 }
 

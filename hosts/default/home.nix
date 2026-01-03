@@ -7,7 +7,7 @@
     ../../modules/programs/tmux.nix   
     ../../modules/programs/nvf-config.nix   
     ../../modules/programs/git.nix   
-    ../../modules/programs/wofi.nix   
+    ../../modules/programs/rofi.nix   
     ../../modules/programs/yazi.nix   
     ../../modules/programs/firefox.nix   
     ../../modules/programs/hyprland.nix   

@@ -41,7 +41,7 @@ in
       $terminal = kitty
       $browser  = firefox
       $fileManager = kitty yazi
-      $menu = wofi --show drun
+      $menu = rofi --show drun
 
       # Colors / sizes (Stylix)
       $active_border   = rgb(${hex c.base05})

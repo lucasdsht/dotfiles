@@ -26,7 +26,7 @@ in
 
         "custom/launcher" = {
           format = "󱄅";
-          on-click = "${pkgs.wofi}/bin/wofi --show drun";
+          on-click = "${pkgs.rofi}/bin/rofi --show drun";
         };
 
         clock = {
