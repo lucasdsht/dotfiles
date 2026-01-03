@@ -15,8 +15,6 @@
     ../../modules/programs/starship/starship.nix   
 
     ../../modules/programs/swaync.nix   
-
-    ../../modules/programs/scripts/theme-switcher.nix
   ];
 
   # Home Manager needs a bit of information about you and the paths it should
