@@ -145,7 +145,7 @@ in
       }
 
       tooltip {
-        background: rgba(43, 48, 59, 0.5);
+        background: @surface;
         border: 1px solid rgba(100, 114, 125, 0.5);
       }
 
@@ -169,7 +169,8 @@ in
       #battery,
       #network,
       #power-profiles-daemon {
-        background-color: ${hex c.base00};
+        background-color: @surface;
+        color: @primary;
         margin-right: 10px;
         padding: 0 15px;
       }
@@ -179,22 +180,23 @@ in
       }
 
       #workspaces {
+        background-color: @surface;
+        color: @primary;
         padding: 8px 5px;
         border-radius: 16px;
       }
 
       #workspaces button {
-        background: ${hex c.base02};
+        background-color: @surface;
         padding: 0px 6px;
         margin: 0px 3px;
         border-radius: 50px;
-        color: transparent;
         transition: all 0.3s ease-in-out;
       }
 
       #workspaces button.active {
-        background-color: ${hex c.base05};
-        color: ${hex c.base02};
+        background-color: @secondary;
+        color: @surface;
         min-width: 50px;
         transition: all 0.3s ease-in-out;
         font-size: 13px;
@@ -202,8 +204,8 @@ in
       }
 
       #workspaces button:hover {
-        background-color: ${hex c.base0B};
-        color: ${hex c.base00};
+        background-color: @error;
+        color: @surface;
         min-width: 50px;
         border-radius: 16px;
         background-size: 400% 400%;
