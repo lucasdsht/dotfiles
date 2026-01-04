@@ -24,4 +24,8 @@
   home.file.".config/kitty/extra.conf" = {
     source = ./extra.conf;
   };
+
+  home.file.".config/kitty/colors/matugen.conf" = {
+    source = ./matugen.conf;
+  };
 }
