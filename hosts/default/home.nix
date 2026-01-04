@@ -1,4 +1,4 @@
-{ config, pkgs, ... }:
+{ config, pkgs, inputs, ... }:
 
 {
   imports = [
@@ -56,7 +56,7 @@
     lutris
     catppuccin-cursors
     swww
-    matugen
+    inputs.matugen.packages.${system}.default
   ];
 
   # Home Manager is pretty good at managing dotfiles. The primary way to manage

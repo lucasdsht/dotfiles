@@ -2,7 +2,7 @@
 
 {
   home.packages = [
-    inputs.matugen.packages.${pkgs.stdenv.hostPlatform.system}.default
+    inputs.matugen.nixosModules.default
   ];
 
   programs.matugen = {
