@@ -1,12 +1,10 @@
-{pkgs, self, ...}:
+{ pkgs, ... }:
 
 {
   stylix = {
     enable = true;
 
-    # base16Scheme = "${pkgs.base16-schemes}/share/themes/everforest-dark-hard.yaml";
-    base16Scheme = "${pkgs.base16-schemes}/share/themes/catppuccin-mocha.yaml";
-
+    # KEEP: fonts only
     fonts = {
       monospace = {
         package = pkgs.nerd-fonts.jetbrains-mono;
@@ -20,20 +18,28 @@
         package = pkgs.dejavu_fonts;
         name = "DejaVu Serif";
       };
-
-      sizes = {
-        terminal = 15;
-      }; 
+      sizes.terminal = 15;
     };
-    
+
+    # OPTIONAL: keep cursor if you want
     cursor = {
       package = pkgs.catppuccin-cursors.mochaGreen;
       name = "catppuccin-mocha-green";
       size = 24;
     };
-    
-    polarity = "dark";
 
-    image = self + /assets/wallpapers/wp.png;
+    # Disable ALL theming targets
+    targets = {
+      gtk.enable = false;
+      waybar.enable = false;
+      kitty.enable = false;
+      firefox.enable = false;
+      hyprland.enable = false;
+      neovim.enable = false;
+      alacritty.enable = false;
+      fish.enable = false;
+      tmux.enable = false;
+    };
   };
 }
+
