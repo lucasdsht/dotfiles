@@ -288,7 +288,7 @@
       # BACKGROUND
       background {
           monitor =
-          path = $wall
+          # path = $wall
           blur_size = 2
           blur_passes = 3 # 0 disables blurring
           noise = 0.0117
