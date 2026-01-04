@@ -15,11 +15,8 @@
       url = "gitlab:rycee/nur-expressions?dir=pkgs/firefox-addons";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    matugen = {
-      url = "github:/InioX/Matugen";
-      #If you need a specific version:
-      #ref = "refs/tags/matugen-v0.10.0";
-    };
+    
+    matugen.url = "github:InioX/Matugen";
 
     stylix.url = "github:danth/stylix";
   };
@@ -45,6 +42,7 @@
           home-manager.users.lucasdcht = {
             imports = [
               nvf.homeManagerModules.default
+              matugen.homeManagerModules.default
               ./hosts/default/home.nix
             ];
           };
