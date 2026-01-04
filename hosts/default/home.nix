@@ -95,18 +95,5 @@
 
   # Let Home Manager install and manage itself.
   programs.home-manager.enable = true;
-  
-    # Disable ALL theming targets
-    stylix.targets = {
-      gtk.enable = false;
-      waybar.enable = false;
-      kitty.enable = false;
-      firefox.enable = false;
-      hyprland.enable = false;
-      neovim.enable = false;
-      fish.enable = false;
-      tmux.enable = false;
-    };
-    stylix.targets.firefox.profileNames = [ "lucasdcht" ];
 
 }
