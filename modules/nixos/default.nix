@@ -10,7 +10,6 @@
     ./packages.nix
     ./desktop.nix
     ./virtualization.nix
-    ./style.nix
     ./audio.nix
     ./power.nix
   ];

@@ -16,21 +16,17 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
     
-    matugen = {
-      url = "github:InioX/Matugen";
-    };
-
-    stylix.url = "github:danth/stylix";
+    # stylix.url = "github:danth/stylix";
   };
 
-  outputs = inputs@{ self, nixpkgs, home-manager, nvf, firefox-addons, matugen, stylix, ... }:
+  outputs = inputs@{ self, nixpkgs, home-manager, nvf, firefox-addons, ... }:
   {
     nixosConfigurations.hostname = nixpkgs.lib.nixosSystem {
       system = "x86_64-linux";
 
       specialArgs = {inherit inputs self;};
       modules = [
-        stylix.nixosModules.stylix
+        # stylix.nixosModules.stylix
         ./hosts/default/configuration.nix
         
         home-manager.nixosModules.home-manager

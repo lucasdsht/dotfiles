@@ -16,7 +16,6 @@
 
     ../../modules/programs/hyprland/hyprland.nix   
     ../../modules/programs/hyprland/hyprmodules.nix   
-    ../../modules/programs/matugen/matugen.nix
 
     ../../modules/programs/scripts/waybar-launch.nix
   ];
@@ -56,7 +55,7 @@
     lutris
     catppuccin-cursors
     swww
-    inputs.matugen.packages.${system}.default
+    matugen
   ];
 
   # Home Manager is pretty good at managing dotfiles. The primary way to manage
