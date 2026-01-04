@@ -28,17 +28,6 @@
       size = 24;
     };
 
-    # Disable ALL theming targets
-    targets = {
-      gtk.enable = false;
-      waybar.enable = false;
-      kitty.enable = false;
-      firefox.enable = false;
-      hyprland.enable = false;
-      neovim.enable = false;
-      fish.enable = false;
-      tmux.enable = false;
-    };
   };
 }
 
