@@ -19,7 +19,7 @@ in {
   programs.fish = {
     enable = true;
     shellAliases = aliasSet;
-    shellInit = "function fish_greeting; end; fastfetch";
+    shellInit = "function fish_greeting; end;";
     plugins = [
       {
         name = "plugin-git";
