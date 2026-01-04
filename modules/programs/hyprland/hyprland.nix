@@ -279,7 +279,6 @@
     force = true;
     text = ''
       # WALLPAPER
-      # $wall = ${wall}
 
       general {
           grace = 0
@@ -288,7 +287,6 @@
       # BACKGROUND
       background {
           monitor =
-          # path = $wall
           blur_size = 2
           blur_passes = 3 # 0 disables blurring
           noise = 0.0117
