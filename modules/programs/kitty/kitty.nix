@@ -17,11 +17,14 @@
     
     extraConfig = ''
       include extra.conf
+      include colors.conf
     '';
 
-    themeFile = "Catppuccin-Mocha";
   };
   home.file.".config/kitty/extra.conf" = {
     source = ./extra.conf;
   };
+
+  # Ensure the file exists even before matugen generates it
+  home.file.".config/kitty/colors.conf".text = "";
 }

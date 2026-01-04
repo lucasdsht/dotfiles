@@ -209,7 +209,7 @@ in
       bind = $mainMod, E, exec, $fileManager
       bind = $mainMod, R, exec, $menu
       bind = $mainMod, L, exec, hyprlock
-      bind = $mainMod CTRL, R, exec, waybarLaunch
+      bind = $mainMod CTRL, R, exec, waybar-launch
 
       # Manage
       bind = $mainMod, C, killactive,

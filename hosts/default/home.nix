@@ -16,8 +16,9 @@
 
     ../../modules/programs/hyprland/hyprland.nix   
     ../../modules/programs/hyprland/hyprmodules.nix   
+    ../../modules/programs/matugen/matugen.nix
 
-    ../../modules/programs/scripts/default.nix
+    ../../modules/programs/scripts/waybar-launch.nix
   ];
 
   # Home Manager needs a bit of information about you and the paths it should
