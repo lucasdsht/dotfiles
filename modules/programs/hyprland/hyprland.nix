@@ -6,7 +6,8 @@
     force = true;
     text = ''
       # ~/.config/hypr/hyprland.conf
-
+      
+      source = ~/.config/hypr/colors.conf
       source = ~/.config/hypr/variables.conf
 
       source = ~/.config/hypr/hyprland/env.conf
@@ -36,8 +37,8 @@
       $menu = rofi -show drun
 
       # Colors / sizes (Stylix)
-      $active_border   = rgb(cdd6f4)
-      $inactive_border = rgba(45475aee)
+      $active_border   = $primary
+      $inactive_border = $on_secondary
       $rounding = 20
       $gap_in  = 7
       $gap_out = 15, 15, 15, 15

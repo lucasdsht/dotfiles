@@ -129,6 +129,8 @@ in
 
     # CSS (fonts from Nixpkgs/Stylix, colors from Stylix)
     style = ''
+      @import "colors.css"
+
       * {
         border: none;
         border-radius: 50px;
