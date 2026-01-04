@@ -10,11 +10,14 @@
     ../../modules/programs/rofi.nix   
     ../../modules/programs/yazi.nix   
     ../../modules/programs/firefox.nix   
-    ../../modules/programs/hyprland.nix   
     ../../modules/programs/waybar.nix   
     ../../modules/programs/starship/starship.nix   
-
     ../../modules/programs/swaync.nix   
+
+    ../../modules/programs/hyprland/hyprland.nix   
+    ../../modules/programs/hyprland/hyprmodules.nix   
+
+    ../../modules/programs/scripts/default.nix
   ];
 
   # Home Manager needs a bit of information about you and the paths it should
@@ -52,9 +55,6 @@
     lutris
     catppuccin-cursors
     swww
-    hypridle
-    hyprlock
-    wlogout
   ];
 
   # Home Manager is pretty good at managing dotfiles. The primary way to manage

@@ -41,7 +41,7 @@ in
       $terminal = kitty
       $browser  = firefox
       $fileManager = kitty yazi
-      $menu = rofi --show drun
+      $menu = rofi -show drun
 
       # Colors / sizes (Stylix)
       $active_border   = rgb(${hex c.base05})
@@ -209,7 +209,7 @@ in
       bind = $mainMod, E, exec, $fileManager
       bind = $mainMod, R, exec, $menu
       bind = $mainMod, L, exec, hyprlock
-      bind = $mainMod CTRL, R, exec, ~/.config/waybar/launch.sh
+      bind = $mainMod CTRL, R, exec, waybarLaunch
 
       # Manage
       bind = $mainMod, C, killactive,

@@ -1,0 +1,7 @@
+{...}:
+
+{
+  import = [
+    ./waybar-launch.nix
+  ];
+}
