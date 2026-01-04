@@ -187,7 +187,7 @@ in
       }
 
       #workspaces button {
-        background-color: @surface;
+        background-color: @on_secondary;
         padding: 0px 6px;
         margin: 0px 3px;
         border-radius: 50px;
