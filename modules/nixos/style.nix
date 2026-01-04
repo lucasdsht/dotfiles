@@ -1,8 +1,9 @@
-{ pkgs, ... }:
+{ pkgs, self, ... }:
 
 {
   stylix = {
     enable = true;
+    image = self + /assets/wallpapers/wp.png;
 
     # KEEP: fonts only
     fonts = {
