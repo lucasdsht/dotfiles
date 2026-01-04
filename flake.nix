@@ -16,7 +16,10 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
     
-    matugen.url = "github:InioX/Matugen";
+    matugen = {
+      url = "github:InioX/Matugen";
+      ref = "refs/tags/matugen-v0.10.0";
+    };
 
     stylix.url = "github:danth/stylix";
   };

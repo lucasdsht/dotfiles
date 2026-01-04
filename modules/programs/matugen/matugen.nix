@@ -1,7 +1,7 @@
-{config, pkgs, inputs, ...}:
+{config, pkgs, inputs, ...}: 
 
 {
-  home.packages = [
+  imports = [
     inputs.matugen.nixosModules.default
   ];
 
