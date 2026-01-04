@@ -36,7 +36,6 @@
       firefox.enable = false;
       hyprland.enable = false;
       neovim.enable = false;
-      alacritty.enable = false;
       fish.enable = false;
       tmux.enable = false;
     };
