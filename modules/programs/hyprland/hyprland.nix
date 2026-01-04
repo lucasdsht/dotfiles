@@ -1,13 +1,5 @@
 { config, pkgs, ... }:
 
-let
-  c = config.lib.stylix.colors;
-
-  # Stylix image path (store path). Hyprlock accepts it fine.
-  wall = toString config.stylix.image;
-
-  hex = s: s; # Stylix gives hex without '#', Hyprland/Hyprlock formats below use that style.
-in
 {
   # ===== Hyprland main file =====
   xdg.configFile."hypr/hyprland.conf" = {
@@ -44,8 +36,8 @@ in
       $menu = rofi -show drun
 
       # Colors / sizes (Stylix)
-      $active_border   = rgb(${hex c.base05})
-      $inactive_border = rgba(${hex c.base03}ee)
+      $active_border   = rgb(cdd6f4)
+      $inactive_border = rgba(45475aee)
       $rounding = 20
       $gap_in  = 7
       $gap_out = 15, 15, 15, 15
@@ -133,7 +125,7 @@ in
           enabled = true
           range = 13
           render_power = 3
-          color = rgba(${hex c.base00}ee)
+          color = rgba(1e1e2eee)
         }
       }
     '';
@@ -315,15 +307,15 @@ in
           dots_spacing = 0.15
           dots_center = true
           dots_rounding = -1
-          outer_color = rgba(${hex c.base0B}ee)
-          inner_color = rgba(${hex c.base00}29)
-          font_color = rgb(${hex c.base05})
+          outer_color = rgba(a6e3a1ee)
+          inner_color = rgba(1e1e2e29)
+          font_color = rgb(cdd6f4)
           fade_on_empty = true
           placeholder_text =
           hide_input = false
           rounding = -1
-          check_color = rgb(${hex c.base0A})
-          fail_color = rgb(${hex c.base08})
+          check_color = rgb(f9e2af)
+          fail_color = rgb(f38ba8)
           fail_text =
           fail_transition = 300
           position = 0, 75
@@ -335,7 +327,7 @@ in
       label {
           monitor =
           text = cmd[update:1000] echo $(date +"%H:%M:%S")
-          color = rgb(${hex c.base0B})
+          color = rgb(a6e3a1)
           font_size = 70
           font_family = CaskaydiaMono Nerd Font Bold
           position = 0, 70
@@ -347,7 +339,7 @@ in
       label {
           monitor =
           text = cmd[update:1000] echo $(date +"%A, %d %B %Y")
-          color = rgb(${hex c.base05})
+          color = rgb(cdd6f4)
           font_size = 24
           font_family = CaskaydiaMono Nerd Font Bold
           position = 0, 0
@@ -359,7 +351,7 @@ in
       label {
           monitor =
           text = 
-          color = rgb(${hex c.base05})
+          color = rgb(cdd6f4)
           font_size = 18
           font_family = JetBrainsMono Nerd Font Propo
           position = 0, 30
