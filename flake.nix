@@ -45,7 +45,6 @@
           home-manager.users.lucasdcht = {
             imports = [
               nvf.homeManagerModules.default
-              matugen.nixosModules.default
               ./hosts/default/home.nix
             ];
           };
