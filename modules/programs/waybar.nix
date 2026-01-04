@@ -129,7 +129,7 @@ in
 
     # CSS (fonts from Nixpkgs/Stylix, colors from Stylix)
     style = ''
-      @import "colors.css"
+      @import "colors.css";
 
       * {
         border: none;
