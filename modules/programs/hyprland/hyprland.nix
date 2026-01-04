@@ -279,7 +279,7 @@
     force = true;
     text = ''
       # WALLPAPER
-      $wall = ${wall}
+      # $wall = ${wall}
 
       general {
           grace = 0
