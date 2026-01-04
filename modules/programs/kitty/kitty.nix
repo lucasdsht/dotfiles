@@ -4,10 +4,10 @@
   programs.kitty = {
     enable = true;
 
-    # font = {
-      # size = 15;
-      # name = "FiraCode Nerd Font Mono Medium";
-    # };
+    font = {
+      size = 15;
+      name = "JetBrainsMono Nerd Font Mono";
+    };
     # boldFont = "FiraCode Nerd Font Mono Bold";
     # italicFont = "Hasklug Nerd Font Mono Italic";
 
