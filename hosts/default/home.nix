@@ -94,6 +94,10 @@
   #
   home.sessionVariables = {
     EDITOR = "nvim";
+    XDG_DATA_DIRS =
+    "${pkgs.gsettings-desktop-schemas}/share/gsettings-schemas/${pkgs.gsettings-desktop-schemas.name}:"
+    + "${pkgs.glib}/share/gsettings-schemas/${pkgs.glib.name}:"
+    + "$XDG_DATA_DIRS";
   };
 
   # Let Home Manager install and manage itself.
