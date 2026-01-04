@@ -7,6 +7,7 @@
 
   programs.matugen = {
     enable = true;
+    variant = "dark";
 
     templates = {
       kitty = {
