@@ -288,13 +288,8 @@
       # BACKGROUND
       background {
           monitor =
-          blur_size = 2
+          path = screenshot
           blur_passes = 3 # 0 disables blurring
-          noise = 0.0117
-          contrast = 1.6000 # Vibrant!!!
-          brightness = 0.5000
-          vibrancy = 0.2500
-          vibrancy_darkness = 0.1000
       }
 
       # PASSWORD-BOX
