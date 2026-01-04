@@ -3,7 +3,6 @@
 {
   imports = [
     ./boot.nix
-    ./env.nix
     ./networking.nix
     ./locale.nix
     ./users.nix
