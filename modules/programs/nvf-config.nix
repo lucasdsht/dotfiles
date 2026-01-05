@@ -60,7 +60,7 @@
 
         extraPlugins = with pkgs.vimPlugins; {
           base16 = {
-            package = base16-vim;
+            package = base16-nvim;
             # no setup here: matugen-generated file will call setup()
           };
 
