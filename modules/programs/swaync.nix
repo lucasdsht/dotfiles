@@ -20,7 +20,7 @@
       hide-on-clear= false;
       image-visibility= "when-available";
       keyboard-shortcuts= true;
-      layer= "overlay";
+      layer= "layer";
       notification-body-image-height= 100;
       notification-body-image-width= 200;
       notification-icon-size= 40;
