@@ -6,7 +6,7 @@
     # Optional: config.json (swaync format)
     settings = {
       control-center-height= 2;
-      control-center-layer= overlay;
+      control-center-layer= "overlay";
       control-center-margin-bottom= 20;
       control-center-margin-left= 0;
       control-center-margin-right= 10;
