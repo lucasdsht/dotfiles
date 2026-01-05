@@ -20,7 +20,7 @@
       hide-on-clear= false;
       image-visibility= "when-available";
       keyboard-shortcuts= true;
-      layer= "layer";
+      layer= "overlay";
       notification-body-image-height= 100;
       notification-body-image-width= 200;
       notification-icon-size= 40;
@@ -130,7 +130,6 @@
       .floating-notifications.background .notification-background .notification .notification-content {
         border: unset;
         border-radius: 1.159rem;
-        -gtk-outline-radius: 1.159rem;
 
       }
 
@@ -229,7 +228,6 @@
 
       .control-center {
         border-radius: 1.705rem;
-        -gtk-outline-radius: 1.705rem;
         border-top: 1px solid rgba(164, 162, 167, 0.19);
         border-left: 1px solid rgba(164, 162, 167, 0.19);
         border-right: 1px solid rgba(128, 127, 132, 0.145);
@@ -243,14 +241,12 @@
       .control-center trough {
         background-color: @error;
         border-radius: 9999px;
-        -gtk-outline-radius: 9999px;
         min-width: 0.545rem;
         background-color: transparent;
       }
 
       .control-center slider {
         border-radius: 9999px;
-        -gtk-outline-radius: 9999px;
         min-width: 0.273rem;
         min-height: 2.045rem;
         background-color: rgba(199, 197, 208, 0.31);
@@ -282,7 +278,6 @@
         border: unset;
         background-color: unset;
         border-radius: 1.159rem;
-        -gtk-outline-radius: 1.159rem;
         padding: 0.141rem 0.141rem;
         margin-right: 0.841rem;
       }
@@ -306,7 +301,6 @@
 
       .widget-buttons-grid {
         border-radius: 1.159rem;
-        -gtk-outline-radius: 1.159rem;
         padding: 0.341rem;
         background-color: rgba(28, 28, 34, 0.35);
         padding: unset;
@@ -355,8 +349,6 @@
         background-color: rgba(28, 28, 34, 0.35);
         padding: 8px;
         margin: 8px;
-        -gtk-outline-radius: 1.159rem;
-        -gtk-outline-radius: 1.159rem;
       }
 
       .widget-volume trough {
@@ -382,7 +374,6 @@
         padding: 8px;
         margin: 8px;
         border-radius: 1.159rem;
-        -gtk-outline-radius: 1.159rem;
       }
 
       .widget-mpris-player {
