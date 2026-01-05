@@ -62,6 +62,7 @@
     nerd-fonts.jetbrains-mono
     pywalfox-native
     libnotify
+    nwg-look
   ];
 
   # Home Manager is pretty good at managing dotfiles. The primary way to manage
