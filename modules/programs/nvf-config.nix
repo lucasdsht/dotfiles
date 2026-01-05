@@ -60,7 +60,7 @@
 
         extraPlugins = with pkgs.vimPlugins; {
           base16 = {
-            package = base16-colorscheme;
+            package = base16-vim;
             # no setup here: matugen-generated file will call setup()
           };
 
