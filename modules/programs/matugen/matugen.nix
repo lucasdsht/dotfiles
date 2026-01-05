@@ -1,36 +1,18 @@
-{config, pkgs, inputs, ...}: 
+{ config, lib, ... }:
 
 {
-  imports = [
-    inputs.matugen.nixosModules.default
-  ];
+  # Copy your matugen config + templates from the repo into ~/.config/matugen
+  xdg.configFile."matugen/config.toml".source = ./files/config.toml;
+  xdg.configFile."matugen/templates".source = ./files/templates;
 
-  programs.matugen = {
-    enable = true;
-    variant = "dark";
-
-    templates = {
-      kitty = {
-        input_path = ./templates/kitty-colors.conf;
-        output_path = "${config.home.homeDirectory}/.config/kitty/colors.conf";
-        post_hook = "${pkgs.procps}/bin/pkill -USR1 kitty || true";
-
-      };
-      yazi = {
-        input_path = ./templates/yazi-theme.toml;
-        output_path = "${config.home.homeDirectory}/.config/yazi/theme.toml";
-      };
-      waybar = {
-        input_path = ./templates/colors.css;
-        output_path = "${config.home.homeDirectory}/.config/waybar/colors.css";
-        post_hook = "pkill -SIGUSR2 waybar";
-      };
-    };
-  };
-
-  gtk = {
-    enable = true;
-    gtk4.extraCss = "@import url(\"${config.programs.matugen.theme.files}/.config/gtk-4.0/gtk.css\");";
-    gtk3.extraCss = "@import url(\"${config.programs.matugen.theme.files}/.config/gtk-3.0/gtk.css\");";
-  };
+  # IMPORTANT: don’t manage files that matugen must write to (colors.conf, gtk css outputs, etc.)
+  # Ensure output dirs exist:
+  home.activation.matugenDirs = lib.hm.dag.entryAfter [ "writeBoundary" ] ''
+    mkdir -p "${config.xdg.configHome}/kitty/colors"
+    mkdir -p "${config.xdg.configHome}/gtk-3.0"
+    mkdir -p "${config.xdg.configHome}/gtk-4.0"
+    mkdir -p "${config.xdg.configHome}/waybar"
+    mkdir -p "${config.xdg.configHome}/matugen/generated"
+  '';
 }
+
