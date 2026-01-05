@@ -61,6 +61,7 @@
     gsettings-desktop-schemas
     nerd-fonts.jetbrains-mono
     pywalfox-native
+    libnotify
   ];
 
   # Home Manager is pretty good at managing dotfiles. The primary way to manage
