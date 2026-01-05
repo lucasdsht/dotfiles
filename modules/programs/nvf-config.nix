@@ -1,4 +1,4 @@
-{...}:
+{pkgs, ...}:
 
 {
   programs.nvf = {
@@ -58,6 +58,9 @@
           python.enable = true;
         };
 
+        extraPlugins = with pkgs.vimPlugins; [
+          base16-colorscheme
+        ];
 
         luaConfigRC.matugen = ''
           local function source_matugen()
