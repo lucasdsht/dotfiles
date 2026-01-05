@@ -102,7 +102,7 @@
 
       * {
         font-size: 14px;
-        font-family: "Adwaita Sans", "JetBrainsMono Nerd Font Propo";
+        font-family: "Dejavu Sans", "JetBrainsMono Nerd Font Propo";
         transition: 100ms;
         box-shadow: unset;
       }
