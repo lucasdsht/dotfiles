@@ -59,7 +59,8 @@
         };
 
         extraPlugins = with pkgs.vimPlugins; [
-          base16-colorscheme
+          base16-vim
+          base16-nvim
         ];
 
         luaConfigRC.matugen = ''
