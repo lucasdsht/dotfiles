@@ -6,11 +6,6 @@
     
     settings = {
       vim = {
-
-        theme = {
-          enable = true;
-          name = "base16";
-        };
         
         options = {
            tabstop = 2;
