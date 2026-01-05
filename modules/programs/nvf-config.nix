@@ -58,10 +58,24 @@
           python.enable = true;
         };
 
-        extraPlugins = with pkgs.vimPlugins; [
-          base16-vim
-          base16-nvim
-        ];
+        extraPlugins = with pkgs.vimPlugins; {
+          base16 = {
+            package = base16-colorscheme;
+            # no setup here: matugen-generated file will call setup()
+          };
+
+          # lualine is already enabled by nvf, but we force its theme to "base16"
+          # and re-setup it on reload (safe even if nvf already did setup).
+          lualine_theme = {
+            package = lualine-nvim;
+            after = [ "base16" ];
+            setup = ''
+              pcall(function()
+                require("lualine").setup({ options = { theme = "base16" } })
+              end)
+            '';
+          };
+        };
 
         luaConfigRC.matugen = ''
           local function source_matugen()
