@@ -1,31 +1,37 @@
-{ ... }:
+{ config, pkgs, ... }:
+
 {
   services.swaync = {
     enable = true;
 
-    # Optional: config.json (swaync format)
+    # ====== Config (adapté depuis ton config.json) ======
     settings = {
+      # (optionnel) schema: pas nécessaire côté HM, swaync s’en fout
+      # "$schema" = "$XDG_CONFIG_HOME/swaync/configSchema.json";
+
+      "control-center-height" = 2;
       "control-center-layer" = "overlay";
-      "control-center-positionX" = "right";
-      "control-center-positionY" = "center";
-      "control-center-margin-top" = 20;
-      "control-center-margin-right" = 10;
       "control-center-margin-bottom" = 20;
       "control-center-margin-left" = 0;
+      "control-center-margin-right" = 10;
+      "control-center-margin-top" = 20;
       "control-center-width" = 500;
 
-      # Remove/avoid this unless you know the expected unit:
-      # "control-center-height" = 2;
-
       "cssPriority" = "application";
+
+      "control-center-positionX" = "right";
+      "control-center-positionY" = "center";
 
       "fit-to-screen" = true;
       "hide-on-action" = false;
       "hide-on-clear" = false;
+
       "image-visibility" = "when-available";
       "keyboard-shortcuts" = true;
 
-      # This must NOT be "layer"
+      # IMPORTANT: tu avais "layer": "layer" dans le JSON (valeur invalide).
+      # Swaync attend "overlay" / "top" / "bottom" selon la version/config.
+      # Mets "overlay" pour être cohérent.
       "layer" = "overlay";
 
       "notification-body-image-height" = 100;
@@ -33,11 +39,15 @@
       "notification-icon-size" = 40;
       "notification-inline-replies" = true;
 
+      "notification-visibility" = { };
       "notification-window-width" = 400;
+
       "positionX" = "right";
       "positionY" = "top";
 
       "script-fail-notify" = true;
+      "scripts" = { };
+
       "timeout" = 10;
       "timeout-critical" = 0;
       "timeout-low" = 5;
@@ -88,7 +98,7 @@
         "title" = {
           "text" = "Notifications";
           "button-text" = "󰎟  Clear";
-          "clear-all-button" = true; # boolean, not "true"
+          "clear-all-button" = true;
         };
 
         "volume" = {
@@ -108,13 +118,16 @@
       ];
     };
 
-    # Optional: CSS (style.css)
+    # ====== CSS (adapté depuis ton style.css) ======
+    # - garde ton import matugen
+    # - enlève -gtk-outline-radius (warnings)
+    # - corrige le selector ".notification..notification-content"
     style = ''
-      @import 'colors.css';
+      @import 'colors/colors.css';
 
       * {
         font-size: 14px;
-        font-family: "Dejavu Sans", "JetBrainsMono Nerd Font Propo";
+        font-family: "Adwaita Sans", "JetBrainsMono Nerd Font Propo";
         transition: 100ms;
         box-shadow: unset;
       }
@@ -142,15 +155,10 @@
       .floating-notifications.background .notification-background .notification .notification-content {
         border: unset;
         border-radius: 1.159rem;
-
       }
 
       .floating-notifications.background .notification-background .notification .notification-content,
       .control-center .notification-background .notification .notification-content {
-        /*  border-top: 1px solid rgba(164, 162, 167, 0.15);
-        border-left: 1px solid rgba(164, 162, 167, 0.15);
-        border-right: 1px solid rgba(128, 127, 132, 0.15);
-        border-bottom: 1px solid rgba(128, 127, 132, 0.15);*/
         background-color: @surface_variant;
         padding: 0.818rem;
         padding-right: unset;
@@ -164,10 +172,9 @@
         color: @on_surface;
       }
 
-      .control-center .notification-row .notification-background .notification..notification-content image,
-      .control-center .notification-row .notification-background .notification.normal .notification-content image,
-      .floating-notifications.background .notification-background .notification.low .notification-content image,
-      .floating-notifications.background .notification-background .notification.normal .notification-content image {
+      /* FIX: double-dot => ".notification .notification-content" */
+      .control-center .notification-row .notification-background .notification .notification-content image,
+      .floating-notifications.background .notification-background .notification .notification-content image {
         background-color: unset;
         color: #e2e0f9;
       }
@@ -250,100 +257,11 @@
         padding: 1.023rem;
       }
 
-      .control-center trough {
-        background-color: @error;
-        border-radius: 9999px;
-        min-width: 0.545rem;
-        background-color: transparent;
-      }
-
-      .control-center slider {
-        border-radius: 9999px;
-        min-width: 0.273rem;
-        min-height: 2.045rem;
-        background-color: rgba(199, 197, 208, 0.31);
-      }
-
-      .control-center slider:hover {
-        background-color: rgba(199, 197, 208, 0.448);
-      }
-
-      .control-center slider:active {
-        background-color: #77767e;
-      }
-
-      /* title widget */
-
-      .widget-title {
-        padding: 0.341rem;
-        margin: unset;
-      }
-
-      .widget-title label {
-        font-family: 'Gabarito', 'Lexend', sans-serif;
-        font-size: 1.364rem;
-        color: @on_surface;
-        margin-left: 0.941rem;
-      }
-
-      .widget-title button {
-        border: unset;
-        background-color: unset;
-        border-radius: 1.159rem;
-        padding: 0.141rem 0.141rem;
-        margin-right: 0.841rem;
-      }
-
-      .widget-title button label {
-        font-family: 'Gabarito', sans-serif;
-        font-size: 1.0409rem;
-        color: @on_surface;
-        margin-right: 0.841rem;
-      }
-
-      .widget-title button:hover {
-        background-color: rgba(128, 128, 128, 0.3);
-      }
-
-      .widget-title button:active {
-        background-color: rgba(128, 128, 128, 0.7);
-      }
-
       /* Buttons widget */
-
-      .widget-buttons-grid {
-        border-radius: 1.159rem;
-        padding: 0.341rem;
-        background-color: rgba(28, 28, 34, 0.35);
-        padding: unset;
-      }
-
-      .widget-buttons-grid>flowbox {
-        padding: unset;
-      }
-
-      .widget-buttons-grid>flowbox>flowboxchild>button:first-child {
-        margin-left: unset;
-      }
-
-      .widget-buttons-grid>flowbox>flowboxchild>button {
-        border: none;
-        background-color: unset;
-        border-radius: 9999px;
-        min-width: 5.522rem;
-        min-height: 2.927rem;
-        padding: unset;
-        margin: unset;
-      }
-
       .widget-buttons-grid>flowbox>flowboxchild>button label {
         font-family: "Materials Symbol Rounded";
         font-size: 1.3027rem;
         color: @on_surface;
-      }
-
-      .widget-buttons-grid>flowbox>flowboxchild>button:hover {
-        background-color: rgba(128, 128, 128, 0.3);
       }
 
       .widget-buttons-grid>flowbox>flowboxchild>button:checked {
@@ -354,54 +272,12 @@
         color: @surface;
       }
 
-
-      /* Volume widget */
-
-      .widget-volume {
-        background-color: rgba(28, 28, 34, 0.35);
-        padding: 8px;
-        margin: 8px;
-      }
-
-      .widget-volume trough {
-        /* OnePlus McClaren edition Orange accent */
-        border: unset;
-        background-color: rgba(128, 128, 128, 0.4);
-      }
-
-
+      /* Volume */
       .widget-volume trough slider {
-        /* OnePlus McClaren edition Orange accent */
-        color: unset;
         background-color: @primary;
         border-radius: 100%;
         min-height: 1.25rem;
       }
-
-
-      /* Mpris widget */
-
-      .widget-mpris {
-        background-color: rgba(28, 28, 34, 0.35);
-        padding: 8px;
-        margin: 8px;
-        border-radius: 1.159rem;
-      }
-
-      .widget-mpris-player {
-        padding: 8px;
-        margin: 8px;
-      }
-
-      .widget-mpris-title {
-        font-weight: bold;
-        font-size: 1.25rem;
-      }
-
-      .widget-mpris-subtitle {
-        font-size: 1.1rem;
-      }
-
     '';
   };
 }
