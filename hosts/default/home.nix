@@ -64,7 +64,7 @@
     libnotify
     nwg-look
     openfortivpn
-    networkmanager.openfortivpn
+    networkmanager-openfortivpn
   ];
 
   # Home Manager is pretty good at managing dotfiles. The primary way to manage
