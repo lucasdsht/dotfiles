@@ -20,7 +20,19 @@
   };
 
   outputs = inputs@{ self, nixpkgs, home-manager, nvf, firefox-addons, ... }:
+  let
+    system = "x86_64-linux";
+    pkgs = import nixpkgs { inherit system; };
+  in
   {
+    # ===== Dev shells (nix develop) =====
+    devShells.${system} = {
+      csharp = import ./shells/csharp.nix { inherit pkgs; };
+      node   = import ./shells/node.nix   { inherit pkgs; };
+      python = import ./shells/python.nix { inherit pkgs; };
+    };
+
+ 
     nixosConfigurations.hostname = nixpkgs.lib.nixosSystem {
       system = "x86_64-linux";
 
