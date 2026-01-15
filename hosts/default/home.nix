@@ -64,6 +64,7 @@
     libnotify
     nwg-look
     openfortivpn
+    manga-tui
   ];
 
   # Home Manager is pretty good at managing dotfiles. The primary way to manage
