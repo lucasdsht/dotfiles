@@ -9,6 +9,6 @@
   users.users.lucasdcht = {
     isNormalUser = true;
     description = "lucas douchet";
-    extraGroups = [ "networkmanager" "wheel" "docker" ];
+    extraGroups = [ "networkmanager" "wheel" "docker" "vboxusers" ];
   };
 }
