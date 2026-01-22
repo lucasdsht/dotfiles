@@ -56,7 +56,10 @@
           rust.enable = true;
           ts.enable = true;
           python.enable = true;
-          csharp.enable = true; 
+          csharp = {
+            enable = true;
+            lsp.enable = true;
+          };
         };
 
         extraPlugins = with pkgs.vimPlugins; {
