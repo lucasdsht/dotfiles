@@ -4,7 +4,7 @@ pkgs.mkShell {
   name = "csharp-env";
 
   packages = with pkgs; [
-    dotnet-sdk_8
+    dotnet-sdk_9
     omnisharp-roslyn
   ];
 
