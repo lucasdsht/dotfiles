@@ -58,7 +58,10 @@
           python.enable = true;
           csharp = {
             enable = true;
-            lsp.enable = true;
+            lsp = {
+              enable = true;
+              server = "roslyn-ls"; 
+            };
           };
         };
 
