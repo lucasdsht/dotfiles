@@ -11,7 +11,6 @@ let
     lg = "lazygit";
     v = "nvim";
     t = "tmux";
-    z = "zoxide";
     nrs = "sudo nixos-rebuild switch --flake ~/nixos#hostname";
   };
 

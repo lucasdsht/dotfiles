@@ -13,7 +13,6 @@
     bat
     fzf
     ripgrep
-    zoxide
     wget
     curl
     acpi
