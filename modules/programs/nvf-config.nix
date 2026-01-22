@@ -60,7 +60,7 @@
             enable = true;
             lsp = {
               enable = true;
-              server = "roslyn-ls"; 
+              server = "roslyn_ls"; 
             };
           };
         };
