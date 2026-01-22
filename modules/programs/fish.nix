@@ -19,7 +19,10 @@ in {
   programs.fish = {
     enable = true;
     shellAliases = aliasSet;
-    shellInit = "function fish_greeting; end;";
+    shellInit = ''
+      function fish_greeting; end;
+      direnv hook fish | source
+    '';
     plugins = [
       {
         name = "plugin-git";

@@ -14,6 +14,7 @@
     ../../modules/programs/starship/starship.nix   
     ../../modules/programs/swaync.nix   
     ../../modules/programs/gtk.nix   
+    ../../modules/programs/direnv.nix   
 
     ../../modules/programs/hyprland/hyprland.nix   
     ../../modules/programs/hyprland/hyprmodules.nix   
