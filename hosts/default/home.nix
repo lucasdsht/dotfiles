@@ -67,6 +67,7 @@
     nwg-look
     openfortivpn
     manga-tui
+    nmgui
   ];
 
   # Home Manager is pretty good at managing dotfiles. The primary way to manage
