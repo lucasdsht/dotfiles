@@ -11,4 +11,6 @@
     description = "lucas douchet";
     extraGroups = [ "networkmanager" "wheel" "docker" "vboxusers" ];
   };
+
+    services.udisks2.enable = true;
 }
