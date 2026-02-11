@@ -30,6 +30,7 @@
       csharp = import ./shells/csharp.nix { inherit pkgs; };
       node   = import ./shells/node.nix   { inherit pkgs; };
       python = import ./shells/python.nix { inherit pkgs; };
+      go     = import ./shells/golang.nix { inherit pkgs; };
     };
 
  
