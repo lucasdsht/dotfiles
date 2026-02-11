@@ -11,6 +11,7 @@
     ./virtualization.nix
     ./audio.nix
     ./power.nix
+    ./tailscale.nix
   ];
 }
 
