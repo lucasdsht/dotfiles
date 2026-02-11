@@ -56,6 +56,7 @@
           rust.enable = true;
           ts.enable = true;
           python.enable = true;
+          golang.enable = true;
           csharp = {
             enable = true;
             lsp = {
