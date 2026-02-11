@@ -3,7 +3,7 @@
 {
   services.tailscale = {
     enable = true;
-    useRoutingFeatures = "both";
+    useRoutingFeatures = "client";
   };
 }
 
