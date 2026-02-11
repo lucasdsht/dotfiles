@@ -17,6 +17,7 @@
     ../../modules/programs/direnv.nix   
     ../../modules/programs/zoxide.nix   
     ../../modules/programs/udiskie.nix   
+    ../../modules/programs/tailscale.nix
 
     ../../modules/programs/hyprland/hyprland.nix   
     ../../modules/programs/hyprland/hyprmodules.nix   
