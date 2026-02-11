@@ -56,7 +56,13 @@
           rust.enable = true;
           ts.enable = true;
           python.enable = true;
-          go.enable = true;
+          go = {
+            enable = true;
+            lsp = {
+              enable = true;
+              server = ["gopls"];
+            };
+          };
           csharp = {
             enable = true;
             lsp = {
