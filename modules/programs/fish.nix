@@ -6,7 +6,6 @@ let
     lla = "ll -a";
     tree = "eza --icons --tree";
     vim = "nvim";
-    cat = "bat";
     ff = "fastfetch";
     lg = "lazygit";
     v = "nvim";
