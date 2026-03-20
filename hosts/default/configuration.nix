@@ -15,7 +15,7 @@
 
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
 
-  programs.home-manager.enable = true;
+  programs.steam.enable = true;
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
 
