@@ -94,7 +94,7 @@
                 owner = "coder";
                 repo = "claudecode.nvim";
                 rev = "main";
-                hash = "sha256-AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=";
+                hash = "sha256-r8hAUpSsr8zNm+av8Mu5oILaTfEsXEnJmkzRmvi9pF8=";
               };
             };
 
