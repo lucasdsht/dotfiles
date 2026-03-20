@@ -1,20 +1,20 @@
-{pkgs, ...}:
+{ pkgs, ... }:
 
 {
   programs.nvf = {
     enable = true;
-    
+
     settings = {
       vim = {
-        
         options = {
-           tabstop = 2;
-           shiftwidth = 2;
-           wrap = false;
+          tabstop = 2;
+          shiftwidth = 2;
+          wrap = false;
         };
 
         statusline.lualine.enable = true;
-	      filetree.nvimTree = {
+
+        filetree.nvimTree = {
           enable = true;
           mappings = {
             toggle = "ff";
@@ -27,15 +27,15 @@
             findFiles = "pf";
             liveGrep = "ps";
           };
-	      };
+        };
 
         treesitter = {
           enable = true;
         };
 
         lsp = {
-	        enable = true;
-	      };
+          enable = true;
+        };
 
         autocomplete.nvim-cmp = {
           enable = true;
@@ -47,7 +47,6 @@
             confirm = "<CR>";
             next = "<C-n>";
             previous = "<C-p>";
-
           };
         };
 
@@ -56,72 +55,157 @@
           rust.enable = true;
           ts.enable = true;
           python.enable = true;
-          go = {
-            enable = true;
-            lsp = {
-              enable = true;
-              server = ["gopls"];
-            };
-          };
+
           csharp = {
             enable = true;
-            lsp = {
-              enable = true;
-              server = "roslyn_ls"; 
-            };
+            lsp.enable = true;
           };
         };
 
         extraPlugins = with pkgs.vimPlugins; {
           base16 = {
             package = base16-nvim;
-            # no setup here: matugen-generated file will call setup()
           };
 
-          # lualine is already enabled by nvf, but we force its theme to "base16"
-          # and re-setup it on reload (safe even if nvf already did setup).
           lualine_theme = {
             package = lualine-nvim;
             after = [ "base16" ];
             setup = ''
               pcall(function()
-                require("lualine").setup({ options = { theme = "base16" } })
+                require("lualine").setup({
+                  options = { theme = "base16" }
+                })
               end)
+            '';
+          };
+
+          snacks = {
+            package = snacks-nvim;
+            setup = ''
+              require("snacks").setup({})
+            '';
+          };
+
+          claudecode = {
+            package = pkgs.vimUtils.buildVimPlugin {
+              pname = "claudecode.nvim";
+              version = "latest";
+              src = pkgs.fetchFromGitHub {
+                owner = "coder";
+                repo = "claudecode.nvim";
+                rev = "main";
+                hash = "sha256-AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=";
+              };
+            };
+
+            after = [ "snacks" ];
+
+            setup = ''
+              require("claudecode").setup({})
             '';
           };
         };
 
-        luaConfigRC.matugen = ''
-          local function source_matugen()
-          local path = os.getenv("HOME") .. "/.config/nvim/nvim-colors.lua"
+        keymaps = [
+          {
+            mode = "n";
+            key = "<leader>ac";
+            action = "<cmd>ClaudeCode<cr>";
+            desc = "Toggle Claude";
+          }
+          {
+            mode = "n";
+            key = "<leader>af";
+            action = "<cmd>ClaudeCodeFocus<cr>";
+            desc = "Focus Claude";
+          }
+          {
+            mode = "n";
+            key = "<leader>ar";
+            action = "<cmd>ClaudeCode --resume<cr>";
+            desc = "Resume Claude";
+          }
+          {
+            mode = "n";
+            key = "<leader>aC";
+            action = "<cmd>ClaudeCode --continue<cr>";
+            desc = "Continue Claude";
+          }
+          {
+            mode = "n";
+            key = "<leader>am";
+            action = "<cmd>ClaudeCodeSelectModel<cr>";
+            desc = "Select Claude model";
+          }
+          {
+            mode = "n";
+            key = "<leader>ab";
+            action = "<cmd>ClaudeCodeAdd %<cr>";
+            desc = "Add current buffer";
+          }
+          {
+            mode = "v";
+            key = "<leader>as";
+            action = "<cmd>ClaudeCodeSend<cr>";
+            desc = "Send to Claude";
+          }
+          {
+            mode = "n";
+            key = "<leader>aa";
+            action = "<cmd>ClaudeCodeDiffAccept<cr>";
+            desc = "Accept diff";
+          }
+          {
+            mode = "n";
+            key = "<leader>ad";
+            action = "<cmd>ClaudeCodeDiffDeny<cr>";
+            desc = "Deny diff";
+          }
+        ];
 
-            local f = io.open(path, "r")
-            if f == nil then
-              -- fallback if matugen hasn't generated anything yet
-              pcall(vim.cmd, "colorscheme base16")
-              return
+        luaConfigRC = {
+          matugen = ''
+            local function source_matugen()
+              local path = os.getenv("HOME") .. "/.config/nvim/nvim-colors.lua"
+
+              local f = io.open(path, "r")
+              if f == nil then
+                pcall(vim.cmd, "colorscheme base16")
+                return
+              end
+              f:close()
+
+              pcall(dofile, path)
+
+              pcall(function()
+                require("lualine").setup({
+                  options = { theme = "base16" }
+                })
+              end)
             end
-            f:close()
 
-            pcall(dofile, path)
+            source_matugen()
 
-            -- ensure lualine re-picks the base16 palette after reload
-            pcall(function()
-              require("lualine").setup({ options = { theme = "base16" } })
-            end)
-          end
+            vim.api.nvim_create_autocmd("Signal", {
+              pattern = "SIGUSR1",
+              callback = function()
+                source_matugen()
+              end,
+            })
+          '';
 
-          -- load once on startup
-          source_matugen()
-
-          -- reload live when matugen runs: `pkill -SIGUSR1 nvim`
-          vim.api.nvim_create_autocmd("Signal", {
-            pattern = "SIGUSR1",
-            callback = function()
-              source_matugen()
-            end,
-          })
-      '';
+          claudecode_filetree = ''
+            vim.api.nvim_create_autocmd("FileType", {
+              pattern = { "NvimTree", "neo-tree", "oil", "minifiles", "netrw" },
+              callback = function(args)
+                vim.keymap.set("n", "<leader>as", "<cmd>ClaudeCodeTreeAdd<cr>", {
+                  buffer = args.buf,
+                  desc = "Add file",
+                })
+              end,
+            })
+          '';
+        };
       };
     };
   };
